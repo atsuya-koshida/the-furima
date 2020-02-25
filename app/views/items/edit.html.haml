@@ -1,0 +1,86 @@
+.form-page
+  = render "shared/form-head"
+  .form-body
+    .container
+      .container__title
+        商品の情報を編集
+      .container__body
+        .body__form
+          = form_with url: "#", local: true do |f|
+            .title
+              .text
+                出品画像
+              %span.require
+                必須
+            .image
+              .mask
+              = f.label :image, class: 'image' do
+                .image-area
+                  = icon('fas', 'image', class: 'icon')
+                = f.file_field :image_id, class: 'hidden'
+              .mask
+              = f.label :image, class: 'image' do
+                .image-area
+                  = icon('fas', 'image', class: 'icon')
+                = f.file_field :image_id, class: 'hidden'
+              .mask
+              = f.label :image, class: 'image' do
+                .image-area
+                  = icon('fas', 'image', class: 'icon')
+                = f.file_field :image_id, class: 'hidden'
+            .title
+              .text
+                商品名
+              %span.require
+                必須
+            =f.text_field :name, class: "item-text-field", placeholder: '商品名（必須40文字まで）'
+            .title
+              .text
+                商品の説明
+              %span.require
+                必須
+            =f.text_area :description, class: "item-text-area", placeholder: '商品の説明（必須1000文字以内）'
+            .title
+              .text
+                カテゴリー
+              %span.require
+                必須
+            =f.select :category_id, [['メンズ', 1], ['レディース', 2]], {prompt: '---'}, { id: "category_id", class: "item-select" }
+            .title
+              .text
+                商品の状態
+              %span.require
+                必須
+            =f.select :condition, [['新品、未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], {prompt: '---'}, { id: "condition", class: "item-select" }
+            .title
+              .text
+                配送料の負担
+              %span.require
+                必須
+            =f.select :postages, [['送料込み(出品者負担)', 1], ['着払い(購入者負担)', 2]], {prompt: '---'}, { id: "postages", class: "item-select" }
+            .title
+              .text
+                発送元の地域
+              %span.require
+                必須
+            =f.select :prefecture, [['東京都', 1], ['埼玉県', 2]], {prompt: '---'}, { id: "prefecture", class: "item-select" }
+            .title
+              .text
+                発送までの日数
+              %span.require
+                必須
+            =f.select :schedule, [['1~2日で発送', 1], ['2~3日で発送', 2], ['4~7日で発送', 2]], {prompt: '---'}, { id: "schedule", class: "item-select" }
+            .title
+              .text
+                価格
+              %span.require
+                必須
+            =f.text_field :name, class: "item-text-field", placeholder: '販売価格(300〜9,999,999)'
+            .text
+              販売手数料 (10%)
+            .text
+              販売利益 ※計算式がきます
+            =f.submit '更新する', class: "submit-btn"
+            =link_to :back do
+              %button.back-btn もどる
+  = render "shared/form-foot"
