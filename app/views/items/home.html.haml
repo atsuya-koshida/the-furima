@@ -1,0 +1,111 @@
+=render 'shared/header'
+.main
+  .main-visual
+    .content
+      %h2.content__subtitle
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+  .top-introduction
+    %h2.subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number 1
+          = image_tag "pict-reason-01.jpg",class: "image"
+        %h3.list__text
+          %span 3分
+          ですぐに出品
+        %p.list__description スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__pict
+          %span.number 2
+          = image_tag "pict-reason-02.jpg",class: "image"
+        %h3.list__text
+          %span シンプル
+          で使いやすい
+        %p.list__description めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list.list--last
+        .list__pict
+          %span.number 3
+          = image_tag "pict-reason-03.jpg",class: "image"
+        %h3.list__text
+          手数料
+          %span 業界最安
+        %p.list__description 最大3%でお得に出品&購入！
+  .top-middle-dl
+    .top-middle-dl__inner
+      %h2.subtitle 会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です!
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+  .top-key-features
+    %h2.head FURIMAの特徴
+    .items
+      .item
+        = image_tag "icon-01.png",class: "item__img"
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .item
+        = image_tag "icon-03.png",class: "item__img"
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .item
+        = image_tag "icon-04.png",class: "item__img"
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  .pickup-container
+    %h2.head ピックアップカテゴリー
+    .product-box
+      .product-head
+        = link_to "#",class: "link" do
+          %h3.title 新規投稿商品
+      .product-lists
+        .product-list
+          =link_to "#", class: "link" do
+            .product-list--img
+              = image_tag "icon-04.png",class: "img"
+            .product-list--body
+              %h3.name
+                title
+              .details
+                %ul
+                  %li
+                    1000円
+                  %li
+                    = icon('fas', 'star') + "0"
+                %p (税込)
+
+  .pickup-container
+    %h2.head ピックアップブランド
+    .product-box
+      .product-head
+        = link_to "#",class: "link" do
+          %h3.title アーカイバ
+      .product-lists
+        .product-list
+          = link_to "#", class: "link" do
+            .product-list--img
+              = image_tag "icon-04.png", class: "img"
+            .product-list--body
+              %h3.name
+                title
+              .details
+                %ul
+                  %li
+                    1000円
+                  %li
+                    = icon('fas', 'star') + "0"
+                %p (税込)
+
+.app-banner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+=render 'shared/footer'
