@@ -1,0 +1,98 @@
+=render 'shared/header'
+.item-show
+  .item-box
+    %h2.item-box__title
+      item1
+    .item-box__images
+      %ul.image-box
+        %li.image-box__select
+          = image_tag "mikan00.jpeg", alt: "item1-big"
+          %ul.image-lists
+            %li.image-lists__image
+              = image_tag "mikan00.jpeg", alt: "item1-1"
+            %li.image-lists__image
+              = image_tag "mikan1.jpeg", alt: "item1-2"
+            %li.image-lists__image
+              = image_tag "fruit_mikan_kawa.png", alt: "item1-3"
+    .item-box__price-box
+      %span.price-box__price
+        ¥
+        3000
+      .price-box__detail
+        %span
+          (税込)
+        %span
+          送料込み
+
+    .item-box__description
+      This is the item1.
+    .item-box__table
+      %table
+        %tbody
+          %tr
+            %th
+              出品者
+            %td
+              user１
+          %tr
+            %th
+              カテゴリー
+            %td
+              =link_to '#' do
+                レディース
+              %br/
+              =link_to '#' do
+                = icon('fas', 'angle-right')
+                トップス
+              %br/
+              =link_to '#' do
+                = icon('fas', 'angle-right')
+                シャツ
+          %tr
+            %th
+              ブランド
+            %td
+          %tr
+            %th
+              商品のサイズ
+            %td
+          %tr
+            %th
+              商品の状態
+            %td
+              新品、未使用
+          %tr
+            %th
+              配送料の負担
+            %td
+              送料込み
+          %tr
+            %th
+              発送元の地域
+            %td
+              =link_to '#' do
+                東京都
+          %tr
+            %th
+              発送日の目安
+            %td
+              1~2日で発送
+
+        .body__purchase-btn
+          = link_to '#' do
+            %button.submit-btn{ style: "width: 100%;"} 購入する
+
+  %ul.links
+    %li
+      =link_to '#' do
+        = icon('fas', 'angle-left')
+        前の商品
+    %li
+      =link_to '#' do
+        後ろの商品
+        = icon('fas', 'angle-right')
+  .related-items
+    =link_to '#' do
+      レディースをもっと見る
+    .related-items__item-list
+=render 'shared/footer'
