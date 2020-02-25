@@ -1,0 +1,31 @@
+.form-page
+  =render partial: 'shared/form-head'
+
+  .form-body
+    .container
+      .container__title
+        ログイン
+      .container__new-account
+        .new-account__info
+          アカウントをお持ちでない方はこちら
+        =link_to new_user_registration_path, class: 'new-account__register-btn' do
+          新規会員登録
+      .container__OAuth
+        .OAuth__facebook
+          .facebook__icon
+            = icon('fab', 'facebook-square')
+          Facebookでログイン
+        .OAuth__google
+          .google__icon
+            = icon('fab', 'google')
+          Googleでログイン
+      .container__sign-in
+        = form_with model: @user, url: user_session_path, local: true do |f|
+          =f.text_field :email, class: "sign-in__text-field", placeholder: 'メールアドレス'
+          =f.password_field :password, class: "sign-in__text-field", placeholder: 'パスワード'
+          =f.submit 'ログイン', class: "sign-in__submit-btn"
+        .forgot-password
+          =link_to '#' do
+            パスワードをお忘れの方
+
+  =render partial: 'shared/form-foot'
