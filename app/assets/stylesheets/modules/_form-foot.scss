@@ -1,0 +1,21 @@
+.form-foot{
+  padding: 40px 0;
+  text-align: center;
+  .nav{
+    margin: 0 auto;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    .text{
+      display: inline-block;
+    }
+  }
+  .foot-icon{
+    margin-top: 3vh;
+    width: 15vw;
+  }
+  p{
+    font-size: 12px;
+  }
+}

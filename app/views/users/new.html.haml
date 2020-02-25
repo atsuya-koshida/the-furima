@@ -1,0 +1,51 @@
+.form-page
+  =render partial: 'shared/form-head'
+
+  .form-body
+    .container
+      .container__title
+        会員情報入力
+      .container__body
+        .body__form
+          = form_with model: @user, url: "#", local: true, method: :post do |f|
+            .title
+              ニックネーム
+            =f.text_field :nickname, class: "text-field", placeholder: '  例）フリマ太朗'
+            .title
+              メールアドレス
+            =f.email_field :email, class: "text-field", placeholder: '  PC・携帯どちらでも可'
+            .title
+              パスワード
+            =f.password_field :password, autocomplete: "off", class: "text-field", placeholder: '7文字以上の半角英数字'
+            .title
+              パスワード確認
+            =f.password_field :password_confirmation, autocomplete: "off", class: "text-field", placeholder:"パスワード確認"
+            .annotation
+              ※ 英字と数字の両方を含めて設定してください
+            .identification-title
+              本人確認
+            .identification-body
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .title
+              お名前（全角）
+            .name-box
+              =f.text_field :lastname, class: "name-box__text-field", placeholder: '  例）山田'
+              =f.text_field :firstname, class: "name-box__text-field", placeholder: '  例）彩'
+            .title
+              お名前カナ（全角）
+            .name-box
+              =f.text_field :lastname_kana, class: "name-box__text-field", placeholder: '  例）ヤマダ'
+              =f.text_field :firstname_kana, class: "name-box__text-field", placeholder: '  例）アヤ'
+            .title
+              生年月日
+            .birthday
+              =f.number_field :birthday, class: "text-field", placeholder: '  例）20190101'
+            .annotation
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+            .terms-of-service
+              「次へ進む」のボタンを押すことにより、
+              = link_to '#', class: 'links-color' do
+                利用規約
+              に同意したものとみなします
+            =f.submit '新規登録', class: "submit-btn"
+  =render partial: 'shared/form-foot'

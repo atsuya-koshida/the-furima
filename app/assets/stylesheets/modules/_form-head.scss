@@ -1,0 +1,18 @@
+.form-page {
+  background-color: #f8f8f8;
+  width: 100vw;
+  .form-head{
+    height: 128px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &__logo{
+      width: 15vw;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+}
