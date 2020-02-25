@@ -44,7 +44,7 @@ Column|Type|Options|
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|string|null: false|
+|name|string|null: false|
 |description|text|null: false|
 |condition|string|null: false|
 |postage|string|null: false|
