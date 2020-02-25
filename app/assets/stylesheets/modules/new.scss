@@ -1,0 +1,157 @@
+.require{
+  margin-left: 1vw;
+  background-color: #ea352d;
+  color: white;
+  border-radius: 2px;
+  padding: 1px 5px;
+  font-size: 12px;
+}
+.images__container{
+  display: block;
+  margin: 16px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  //プレビュー表示欄
+  .prev-content {
+    display: flex;
+    overflow: scroll;
+    .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
+      .upper-box {
+        height: 112px;
+        width: 100%;
+        img{
+          width: 112px;
+          height: 112px;
+        }
+      }
+      .lower-box {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        .delete-box {
+          color: #00b0ff;
+          width: 100%;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid #eee;
+          background: #f5f5f5;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //投稿クリックエリア
+  .label-content{
+    margin-bottom: 10px;
+    width: 620px;
+    .label-box {
+      display: block;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      position: relative;
+      background: #f5f5f5;
+      width: 100%;
+      height: 50px;
+      cursor: pointer;
+      &__text {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        right: 16px;
+        color: #3CCACE;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        pointer-events: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  //file_field
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
+    }
+  }
+}
+.item-text-field{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 5vh;
+  font-size: 16px;
+  margin-bottom: 2vh;
+}
+.item-text-area{
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  line-height: 5vh;
+  font-size: 16px;
+  min-height: 20vh;
+  margin-bottom: 2vh;
+}
+.item-select{
+  width: 100%;
+  height: 5vh;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: white;
+  margin-bottom: 2vh;
+}
+.submit-btn{
+  background-color: red;
+  height: 50px;
+  width: 343px;
+  color: white;
+  line-height: 50px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+.back-btn{
+  width: 100%;
+  height: 50px;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  font-size: 14px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.form-foot{
+  padding: 40px 0;
+  text-align: center;
+  .nav{
+    margin: 0 auto;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    .text{
+      display: inline-block;
+    }
+  }
+  .foot-icon{
+    margin-top: 3vh;
+    width: 15vw;
+  }
+  p{
+    font-size: 12px;
+  }
+}
