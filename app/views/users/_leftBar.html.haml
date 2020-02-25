@@ -1,0 +1,51 @@
+.side-menu
+  = link_to '#', class: 'side-menu__content' do
+    マイページ 
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  = link_to '#', class: 'side-menu__content' do
+    出品する
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  = link_to '#', class: 'side-menu__content' do
+    出品した商品-出品中
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  = link_to '#', class: 'side-menu__content' do
+    出品した商品-売却済み
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  = link_to '#', class: 'side-menu__content' do
+    お問い合わせ
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  .side-menu__sub-title
+    設定
+  = link_to '#', class: 'side-menu__content' do
+    プロフィール
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  // 以下、サーバ実装後の情報の登録の有無確認用
+  //- if Address.find_by(user_id: params[:format]) == nil
+  = link_to "#", class: 'side-menu__content' do
+    発送元・お届け先住所の登録
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  //- else
+  = link_to "#", class: 'side-menu__content' do
+    発送元・お届け先住所の変更
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+
+  = link_to '#', class: 'side-menu__content' do
+    支払い方法
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  = link_to '#', class: 'side-menu__content' do
+    メール/パスワード
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
+  = link_to '#', class: 'side-menu__content' do
+    本人情報     
+    .side-menu__content--arrow
+      = icon('fas', 'chevron-right')
