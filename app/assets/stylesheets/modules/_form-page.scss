@@ -1,0 +1,47 @@
+.form-page {
+  background-color: #f8f8f8;
+  width: 100vw;
+  .form-head{
+    height: 128px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &__logo{
+      width: 15vw;
+      margin: 0 auto;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+  }
+  .form-body{
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    .container {
+      &__title {
+        text-align: center;
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: bold;
+        padding: 30px 0;
+        border-bottom: 2px solid #f8f8f8;
+      }
+      &__body{
+        display: flex;
+        justify-content: center;
+        .body__form{
+          width: 343px;
+          font-size: 14px;
+          .title{
+            display: flex;
+            font-weight: bold;
+            margin-top: 1vh;
+            margin-bottom: 1vh;
+          }
+        }
+      }
+    }
+  }
+}
