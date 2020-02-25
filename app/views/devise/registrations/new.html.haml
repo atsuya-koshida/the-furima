@@ -7,7 +7,8 @@
         会員情報入力
       .container__body
         .body__form
-          = form_with model: @user, url: "#", local: true, method: :post do |f|
+          = form_with model: @user, url: user_registration_path, local: true, method: :post do |f|
+            = devise_error_messages!
             .title
               ニックネーム
             =f.text_field :nickname, class: "text-field", placeholder: '  例）フリマ太朗'
