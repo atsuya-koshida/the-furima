@@ -7,45 +7,49 @@
       .container__body
         .body__form
           = form_with url: "#", local: true do |f|
-            .title
-              .text
-                出品画像
-              %span.require
-                必須
-            .image
-              .mask
-              = f.label :image, class: 'image' do
-                .image-area
-                  = icon('fas', 'image', class: 'icon')
-                = f.file_field :image_id, class: 'hidden'
-              .mask
-              = f.label :image, class: 'image' do
-                .image-area
-                  = icon('fas', 'image', class: 'icon')
-                = f.file_field :image_id, class: 'hidden'
-              .mask
-              = f.label :image, class: 'image' do
-                .image-area
-                  = icon('fas', 'image', class: 'icon')
-                = f.file_field :image_id, class: 'hidden'
+            .form__images
+              .title
+                .text
+                  出品画像
+                %span.require
+                  必須
+              %p 最大10枚までアップロードできます
+              .images__container
+                .prev-content
+                .label-content
+                  %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                    %pre.label-box__text クリックしてファイルをアップロード
+                .hidden-content
+                  = f.fields_for :images do |i|
+                    = i.file_field :image, class: "hidden-field"
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][5][image]", id: "item_images_attributes_5_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][6][image]", id: "item_images_attributes_6_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][7][image]", id: "item_images_attributes_7_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][8][image]", id: "item_images_attributes_8_image" }
+                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][9][image]", id: "item_images_attributes_9_image" }
             .title
               .text
                 商品名
               %span.require
                 必須
-            =f.text_field :name, class: "item-text-field", placeholder: '商品名（必須40文字まで）'
+            =f.text_field :title, class: "item-text-field", placeholder: '商品名（必須40文字まで）'
             .title
               .text
                 商品の説明
               %span.require
                 必須
             =f.text_area :description, class: "item-text-area", placeholder: '商品の説明（必須1000文字以内）'
-            .title
-              .text
-                カテゴリー
-              %span.require
-                必須
-            =f.select :category_id, [['メンズ', 1], ['レディース', 2]], {prompt: '---'}, { id: "category_id", class: "item-select" }
+            .category-form
+              .title
+                .text
+                  カテゴリー
+                %span.require
+                  必須
+              =f.select :category_id, [['メンズ', 1], ['レディース', 2]], {prompt: '---'}, { id: "category_id", class: "item-select" }
             .title
               .text
                 商品の状態
@@ -57,7 +61,7 @@
                 配送料の負担
               %span.require
                 必須
-            =f.select :postages, [['送料込み(出品者負担)', 1], ['着払い(購入者負担)', 2]], {prompt: '---'}, { id: "postages", class: "item-select" }
+            =f.select :postage, [['送料込み', '送料込み'], ['着払い', '着払い']], {prompt: '---'}, { id: "postages", class: "item-select" }
             .title
               .text
                 発送元の地域
@@ -75,11 +79,13 @@
                 価格
               %span.require
                 必須
-            =f.text_field :name, class: "item-text-field", placeholder: '販売価格(300〜9,999,999)'
+            =f.text_field :price, class: "item-text-field", id: "price_calc", placeholder: '販売価格(300〜9,999,999)'
             .text
               販売手数料 (10%)
+              .commission -
             .text
-              販売利益 ※計算式がきます
+              販売利益
+              .profit -
             =f.submit '更新する', class: "submit-btn"
             =link_to :back do
               %button.back-btn もどる
