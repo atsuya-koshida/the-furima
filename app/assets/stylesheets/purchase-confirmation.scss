@@ -12,34 +12,34 @@
   }
   &__body {
     margin: 0 20%;
-    &__item {
+    .item-unit {
       width: 100%;
       display: flex;
       padding: 10%;
       border-bottom: 2px solid #f8f8f8;
-      .item__left-box {
+      .item-unit__left {
         margin: auto 0;
         padding-right: 10px;
-        .left-box__image {
+        .image-1 {
           object-fit: cover;
           height: 70px;
           width: 70px;
         }
       }
-      .item__right-box {
+      .item-unit__right {
         padding-left: 10px;
-        .right-box__title {
+        .right__title {
           font-size: 16px;
           line-height: 16px;
           padding-bottom: 10px;
         }
-        .right-box__price-box {
+        .right__price-box {
           font-size: 14px;
           line-height: 14px;
           font-weight: bold;
           display: flex;
           justify-content: start;
-          .price-box__price {
+          .price {
             padding-right: 5px;
           }
           span {
@@ -48,7 +48,7 @@
         }
       }
     }
-    .body__payment {
+    .payment {
       display: flex;
       justify-content: space-between;
       padding: 10% 0;
@@ -57,23 +57,23 @@
         font-size: 18px;
         font-weight: bold;
       }
-      .payment__amount {
+      &__amount {
         font-size: 28px;
         font-weight: bold;
       }
     }
-    .body__payment-method {
+    .payment-method {
       display: flex;
       justify-content: space-between;
       padding: 10% 0;
       border-bottom: 2px solid #f8f8f8;
-      .payment-method__show {
+      .confirmation-box {
         font-size: 14px;
-        .show__heading {
+        &__heading {
           font-weight: bold;
           padding-bottom: 10px;
         }
-        .show__detail {
+        &__detail {
           p {
             line-height: 18px;
           }
@@ -85,24 +85,19 @@
           }
         }
       }
-      .payment-method__changing-btn {
-        font-size: 14px;
-        color: #3CCACE;
-        text-decoration: none;
-      }
     }
-    .body__shipping-address {
+    .shipping-address {
       display: flex;
       justify-content: space-between;
       padding: 10% 0;
       border-bottom: 2px solid #f8f8f8;
-      .shipping-address__show {
+      .confirmation-box {
         font-size: 14px;
-        .show__heading {
+        &__heading {
           font-weight: bold;
           padding-bottom: 10px;
         }
-        .show__detail {
+        &__detail {
           line-height: 22px;
         }
       }
@@ -112,7 +107,7 @@
         text-decoration: none;
       }
     }
-    .body__purchase-btn {
+    .purchase-btn {
       padding: 10% 0;
       .btn {
         background-color: #3CCACE;
