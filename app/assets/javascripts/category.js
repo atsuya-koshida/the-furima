@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on(function() {
 
   // selectを追加するHTML
   var cat_seach = $(".category-form");

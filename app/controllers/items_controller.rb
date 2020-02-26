@@ -13,23 +13,19 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
       @parents = Category.where(ancestry: nil)
-      @item = Item.new(item_params)
-      @item.images.new
+      flash.now[:alert] = '出品に失敗しました'
       render :new
-      # flash.now[:alert] = '出品に失敗しました'
     end
   end
 
   def category_more
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
-      # binding.pry
     else
       @s_cat = Category.find(params[:m_cat]).children
     end
