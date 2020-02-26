@@ -26,6 +26,19 @@ class ItemsController < ApplicationController
     end
   end
 
+  def category_more
+    if params[:l_cat]
+      @m_cat = Category.find(params[:l_cat]).children
+      # binding.pry
+    else
+      @s_cat = Category.find(params[:m_cat]).children
+    end
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def item_params
