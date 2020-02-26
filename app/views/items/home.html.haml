@@ -60,6 +60,9 @@
         = image_tag "icon-04.png",class: "item__img"
         %h3.item__subtitle 様々な支払いに対応
         %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+
+
   .pickup-container
     %h2.head ピックアップカテゴリー
     .product-box
@@ -67,20 +70,22 @@
         = link_to "#",class: "link" do
           %h3.title 新規投稿商品
       .product-lists
-        .product-list
-          =link_to "#", class: "link" do
-            .product-list--img
-              = image_tag "icon-04.png",class: "img"
-            .product-list--body
-              %h3.name
-                title
-              .details
-                %ul
-                  %li
-                    1000円
-                  %li
-                    = icon('fas', 'star') + "0"
-                %p (税込)
+        // TODO itemコントローラで表示数指定
+        - for num in 1..8 do
+          .product-list
+            =link_to "#", class: "link" do
+              .product-list--img
+                = image_tag "icon-04.png",class: "img"
+              .product-list--body
+                %h3.name
+                  title
+                .details
+                  %ul
+                    %li
+                      1000円
+                    %li
+                      = icon('fas', 'star') + "0"
+                  %p (税込)
 
   .pickup-container
     %h2.head ピックアップブランド
@@ -89,20 +94,22 @@
         = link_to "#",class: "link" do
           %h3.title アーカイバ
       .product-lists
-        .product-list
-          = link_to "#", class: "link" do
-            .product-list--img
-              = image_tag "icon-04.png", class: "img"
-            .product-list--body
-              %h3.name
-                title
-              .details
-                %ul
-                  %li
-                    1000円
-                  %li
-                    = icon('fas', 'star') + "0"
-                %p (税込)
+        // TODO itemコントローラで表示数指定
+        - for num in 1..8 do
+          .product-list
+            = link_to "#", class: "link" do
+              .product-list--img
+                = image_tag "icon-04.png", class: "img"
+              .product-list--body
+                %h3.name
+                  title
+                .details
+                  %ul
+                    %li
+                      1000円
+                    %li
+                      = icon('fas', 'star') + "0"
+                  %p (税込)
 
 .app-banner
   .inner
