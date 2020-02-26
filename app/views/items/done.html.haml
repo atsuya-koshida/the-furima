@@ -4,31 +4,31 @@
     .container__title
       購入が完了しました
     .container__body
-      .body__item
-        .item__left-box
-          = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'left-box__image'
-        .item__right-box
-          .right-box__title
+      .item-unit
+        .item-unit__left
+          = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'image-1'
+        .item-unit__right
+          .right__title
             = @item.title
-          .right-box__price-box
-            .price-box__price
+          .right__price-box
+            .price
               ¥
               = @item.price.to_s(:delimited)
             %span
               (税込)
             .price-box__postage
               送料込み
-      .body__payment
+      .payment
         %span
           支払い金額
         .payment__amount
           ¥
           = @item.price.to_s(:delimited)
-      .body__shipping-address
-        .shipping-address__show
-          .show__heading
+      .shipping-address
+        .confirmation-box
+          .confirmation-box__heading
             配送先
-          .show__detail
+          .confirmation-box__detail
             〒150-0041
             %br/
             東京都 渋谷区 神南1丁目12-16 アジアビル８F
