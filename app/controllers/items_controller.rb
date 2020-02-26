@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   # カテゴリが４の商品を登録が新しい順で10レコード抽出
   def category_index
+    @category = Category.where(id: 4)
     @items = Item.where(bought_user_id: nil).where(category_id: 4).order(created_at: "DESC").take(10)
   end
 
