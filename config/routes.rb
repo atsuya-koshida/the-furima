@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'card/new'
-  get 'card/show'
   devise_for :users
   root "items#home"
   resources :items, only: [:new, :show, :edit] do
