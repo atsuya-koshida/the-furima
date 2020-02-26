@@ -1,0 +1,52 @@
+.form-page
+  =render 'shared/form-head'
+  .container
+    .container__title
+      購入内容の確認
+    .container__body
+      .item-unit
+        .item-unit__left
+          = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'image-1'
+        .item-unit__right
+          .right__title
+            item1
+          .right__price-box
+            .price
+              ¥
+              3000
+            %span
+              (税込)
+            .postage
+              送料込み
+      .payment
+        %span
+          支払い金額
+        .payment__amount
+          ¥
+          3000
+      .payment-method
+        .confirmation-box
+          .confirmation-box__heading
+            支払い方法
+          .confirmation-box__detail
+            クレジットカード
+            %br/
+            **** **** **** 1234
+            %br/
+            有効期限 02/24
+      .shipping-address
+        .confirmation-box
+          .confirmation-box__heading
+            配送先
+          .confirmation-box__detail
+            〒150-0041
+            %br/
+            東京都 渋谷区 神南1丁目12-16 アジアビル８F
+            %br/
+            山田 太郎
+        =link_to '#', class: 'shipping-address__changing-btn' do
+          変更する
+      .purchase-btn
+        = form_tag '#' do
+          %button.submit-btn{ style: "margin-top: 0; width: 100%;"} 購入する
+  =render 'shared/form-foot'

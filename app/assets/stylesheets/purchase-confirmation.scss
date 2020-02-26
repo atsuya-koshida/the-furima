@@ -1,0 +1,123 @@
+.container {
+  width: 700px;
+  margin: 0 auto;
+  background-color: white;
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    padding: 30px 0;
+    border-bottom: 2px solid #f8f8f8;
+  }
+  &__body {
+    margin: 0 20%;
+    .item-unit {
+      width: 100%;
+      display: flex;
+      padding: 10%;
+      border-bottom: 2px solid #f8f8f8;
+      .item-unit__left {
+        margin: auto 0;
+        padding-right: 10px;
+        .image-1 {
+          object-fit: cover;
+          height: 70px;
+          width: 70px;
+        }
+      }
+      .item-unit__right {
+        padding-left: 10px;
+        .right__title {
+          font-size: 16px;
+          line-height: 16px;
+          padding-bottom: 10px;
+        }
+        .right__price-box {
+          font-size: 14px;
+          line-height: 14px;
+          font-weight: bold;
+          display: flex;
+          justify-content: start;
+          .price {
+            padding-right: 5px;
+          }
+          span {
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+    .payment {
+      display: flex;
+      justify-content: space-between;
+      padding: 10% 0;
+      border-bottom: 2px solid #f8f8f8;
+      span {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      &__amount {
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+    .payment-method {
+      display: flex;
+      justify-content: space-between;
+      padding: 10% 0;
+      border-bottom: 2px solid #f8f8f8;
+      .confirmation-box {
+        font-size: 14px;
+        &__heading {
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+        &__detail {
+          p {
+            line-height: 18px;
+          }
+          img {
+            object-fit: cover;
+            height: 15px;
+            width: 50px;
+            margin: 10px 0 0;
+          }
+        }
+      }
+    }
+    .shipping-address {
+      display: flex;
+      justify-content: space-between;
+      padding: 10% 0;
+      border-bottom: 2px solid #f8f8f8;
+      .confirmation-box {
+        font-size: 14px;
+        &__heading {
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+        &__detail {
+          line-height: 22px;
+        }
+      }
+      .shipping-address__changing-btn {
+        font-size: 14px;
+        color: #3CCACE;
+        text-decoration: none;
+      }
+    }
+    .purchase-btn {
+      padding: 10% 0;
+      .btn {
+        background-color: #3CCACE;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+        padding: 12px 180px;
+      }
+    }
+  }
+}
