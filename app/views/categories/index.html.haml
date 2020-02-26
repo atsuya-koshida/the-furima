@@ -1,0 +1,16 @@
+=render 'shared/header'
+.main
+  - @parents.each do |parent|
+    .category-container
+      %h1
+        =parent.name
+      .category-box
+        - parent.children.each do |child|
+          %h2 
+            =child.name
+          %ul
+            - child.children.each do |grandchild|
+              =link_to "#" do
+                %li
+                  =grandchild.name
+  =render 'shared/footer'
