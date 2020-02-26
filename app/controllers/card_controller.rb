@@ -2,7 +2,6 @@ class CardController < ApplicationController
   require "payjp"
   before_action :set_card, only: [:new]
   def new
-    # redirect_to action: "show" if card.exists?
   end
 
   def pay
