@@ -2,14 +2,14 @@
   =render partial: 'shared/form-head'
   .container
     .container__title
-      購入内容の確認
+      購入が完了しました
     .container__body
       .body__item
         .item__left-box
           = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'left-box__image'
         .item__right-box
           .right-box__title
-            item1
+            = @item.title
           .right-box__price-box
             .price-box__price
               ¥
@@ -24,18 +24,6 @@
         .payment__amount
           ¥
           = @item.price.to_s(:delimited)
-      .body__payment-method
-        .payment-method__show 
-          .show__heading
-            支払い方法
-          .show__detail
-            - if @default_card_information.blank?
-              %br /
-            - else
-              = "**** **** **** " + @default_card_information.last4
-              - exp_month = @default_card_information.exp_month.to_s
-              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-              = exp_month + " / " + exp_year
       .body__shipping-address
         .shipping-address__show
           .show__heading
@@ -46,9 +34,7 @@
             東京都 渋谷区 神南1丁目12-16 アジアビル８F
             %br/
             山田 太郎
-        =link_to '#', class: 'shipping-address__changing-btn' do
-          変更する
       .body__purchase-btn
-        = form_tag(action: :pay, method: :post) do
-          %button.submit-btn{ style: "margin-top: 0; width: 100%;"} 購入する
+        = link_to root_path do
+          %button.submit-btn{ style: "margin-top: 0; width: 100%;"} 買い物を続ける
   =render partial: 'shared/form-foot'

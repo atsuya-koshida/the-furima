@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :show, :edit] do
     collection do
       get 'category_more'
+    end
+    member do
       get 'purchase', to: 'items#purchase'
+      get 'done', to: 'items#done'
+      post 'pay', to: 'items#pay'
     end
   end
 
