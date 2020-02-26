@@ -1,35 +1,23 @@
-=render 'shared/header'
+-# =render 'shared/header'
 
-.owaku
-  .tyuoyose
-    %ul.rinkumozi-lists
-      
-      %li
-        = link_to "#", class: "rinkumozi" do
-          家庭用ゲーム本体
-      
-    .kensaku-taitoru
+.search-results-tmp
+  .search-results-tmp__disp-area
+    .search-results-tmp__disp-area--search-title
       = "”" + "検索内容" + "”の一覧"
-    .syouhin-lists
 
-
-      - for num in 1..20 do
-        .syouhin-block
-          .gazou
-            = image_tag "icon-04.png", class: "gazou"
-            .nedan
+    .search-products-list
+      // TODO 検索結果で作成
+      - for num in 1..10 do
+        .search-product-block
+          .search-product-block__product-img
+            = image_tag "icon-04.png", class: "img-conf"
+            .search-product-block__product-img--on-price
               = "¥ " + "1,0000"
-          .syouhinmei
+          .search-product-block__product-name
             商品名ああああああああああああああああああああああ
-            .masuku
+            .search-product-block__product-name--white-mask
 
-
-    .pezi-area
+    .pagination-area
       ページネイション
-    .kategori-setumei
-      .kategori-taitoru
-        テレビゲーム（本・音楽・ゲーム）
-      .kategori-tekisuto
-        テレビゲーム(本・音楽・ゲーム)の買い取り、売るならメルカリへ。テレビゲームは本・音楽・ゲームの下にあるカテゴリで商品は100万点以上あります。よく見られているカテゴリーは携帯用ゲームソフトや携帯用ゲームソフトです。特に人気の商品は「ポケットモンスター ソウルシルバー」や「すみっコぐらし むらをつくるんです」や「信長の野望・創造 with パワーアップキット」があります。テレビゲームの処分や整理、売却を検討中の方にお勧めです。
 
-=render 'shared/footer'
+-# =render 'shared/footer'

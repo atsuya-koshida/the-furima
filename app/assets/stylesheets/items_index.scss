@@ -1,33 +1,21 @@
-.owaku{
+.search-results-tmp{
   background-color: #f8f8f8;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
-  .tyuoyose{
-    // background-color: violet;
+  &__disp-area{
     max-height: 7324px;
     min-height: 500px;
     max-width: 1020px;
     width: 80%;
     min-width: 500px;
-    .rinkumozi-lists{
-      font-size: 14px;
-      padding-top: 40px;
-      text-decoration: none;
-      display: flex;
-      .rinkumozi{
-        padding-right: 20px;
-        color: #3CCACE;
-      }
-    }
-    .kensaku-taitoru{
+    &--search-title{
       font-size: 22px;
       font-weight: bold;
       padding: 20px 0 5px 0;
     }
-    .syouhin-lists{
-      // background-color: yellow;
+    .search-products-list{
       max-height: 7324px;
       min-height: 500px;
       max-width: 100%;
@@ -35,17 +23,22 @@
       display: flex;
       flex-wrap: wrap;
       word-wrap: break-word;  //強制折り返し
-      .syouhin-block{
+      .search-product-block{
         height: 246px;
         width: 204px;
         padding: 8px;
         margin-bottom: 16px;
-        .gazou{
+        &__product-img{
           background-color: tomato;
           height: 188px;
           width: 188px;
           position: relative;
-          .nedan{
+          .img-conf{
+            height: 188px;
+            width: 188px;
+            object-fit: cover;
+          }
+          &--on-price{
             position: absolute;
             background-color: #00000033;
             height: 25px;
@@ -59,7 +52,7 @@
             border-bottom-right-radius: 15px;
           }
         }
-        .syouhinmei{
+        &__product-name{
           background-color: white;
           height: 58px;
           width: 100%;
@@ -67,9 +60,8 @@
           font-size: 15px;
           overflow: hidden;
           position: relative;
-          .masuku{
+          &--white-mask{
             position: absolute;
-            // background-color: yellowgreen;
             bottom: 0;
             right: 10px;
             height: 25px;
@@ -81,33 +73,12 @@
         }
       }
     }
-    .pezi-area{
+    .pagination-area{
       background-color: violet;
       height: 44px;
       width: 100%;
       margin-top: 40px;
       margin-bottom: 40px;
-    }
-    .kategori-setumei{
-      background-color: yellowgreen;
-      height: 200px;
-      width: 100%;
-      .kategori-taitoru{
-        background-color: red;
-        height: 52px;
-        width: 100%;
-        font-size: 22px;
-        font-weight: bold;
-        color: white;
-        text-align: center;
-        line-height: 52px;
-      }
-      .kategori-tekisuto{
-        background-color: white;
-        height: 148px;
-        padding: 30px;
-        font-size: 14px;
-      }
     }
   }
 }
