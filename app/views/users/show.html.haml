@@ -1,0 +1,65 @@
+.form-page
+  =render 'shared/header'
+  .my-page
+    =render 'users/leftBar'
+    .my-status
+      .my-status__user
+        .profile-area
+          -# = image_tag src = ""   プロフィール画像用
+          = link_to '#', class: 'profile-area__my-profile' do
+            .profile-area__my-profile--icon
+              = image_tag src = "material/icon/member_photo_noimage_thumb.png"
+            .profile-area__my-profile--name
+              name
+            .profile-area__my-profile--status
+              評価 0 出品数 0
+        .postal-tabs
+          = link_to '#', id: 'news-tab', class: 'mypage-tab' do
+            お知らせ
+          = link_to '#', id: 'todo-tab', class: 'mypage-tab' do
+            やることリスト
+
+        = link_to '#', class: 'postal-lists' do
+          .postal-lists__content
+            .postal-lists__content--icon
+            .postal-lists__content--text
+              .incoming-information
+                《新規登録者限定》"最大1,000円分のポイントがもらえる"出品キャンペーン開催中！
+              .Incoming-time
+                .Incoming-time--clock-icon
+                .Incoming-time--time
+                  8時間前        
+          .postal-lists__arrow
+            = icon('fas', 'chevron-right')
+        = link_to '#', class: 'postal-lists' do
+          .postal-lists__content
+            .postal-lists__content--icon
+            .postal-lists__content--text
+              .incoming-information
+                事務局からの個別メッセージ「Googleログイン通知」
+              .Incoming-time
+                .Incoming-time--clock-icon
+                .Incoming-time--time
+                  8時間前        
+          .postal-lists__arrow
+            = icon('fas', 'chevron-right')
+
+
+        .postal-all-links
+          = link_to '#' do
+            .postal-all-links__link-area
+              一覧を見る
+
+
+      .my-status__purchased-items
+        .purchased-title
+          購入した商品
+        .purchased-tabs
+          = link_to '#', id: 'during-trading-tab', class: 'mypage-tab' do
+            取引中
+          = link_to '#', id: 'transacted-tab', class: 'mypage-tab' do
+            取引済み
+        .purchased-lists
+          .purchased-lists--message
+            取引中の商品がありません
+  =render partial: 'shared/form-foot'
