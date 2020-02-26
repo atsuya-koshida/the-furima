@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       get 'purchase', to: 'items#purchase'
     end
   end
+  get 'categories/itemsindex', to: 'categories#itemsindex'
+  resources :categories, only: [:index]
 end
