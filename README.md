@@ -44,12 +44,12 @@ Column|Type|Options|
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|title|string|null: false|
 |description|text|null: false|
-|condition|string|null: false|
-|postage|string|null: false|
-|prefecture|string|null: false|
-|schedule|string|null: false|
+|condition_id|integer|null: false|
+|postage_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|schedule_id|integer|null: false|
 |price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
@@ -66,13 +66,13 @@ Column|Type|Options|
 |firstname|string|null: false|
 |lastname_kana|string|null: false|
 |firstname_kana|string|null: false|
-|postal_code|inter|null: false|
+|postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |house_num|string|null: false|
 |detail|string|
-|tel_num|integer|
-|user_id|integer|null: false, foreign_key: true|
+|tel_num|string|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
