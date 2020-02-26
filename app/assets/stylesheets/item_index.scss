@@ -1,0 +1,113 @@
+.owaku{
+  background-color: #f8f8f8;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .tyuoyose{
+    // background-color: violet;
+    max-height: 7324px;
+    min-height: 500px;
+    max-width: 1020px;
+    width: 80%;
+    min-width: 500px;
+    .rinkumozi-lists{
+      font-size: 14px;
+      padding-top: 40px;
+      text-decoration: none;
+      display: flex;
+      .rinkumozi{
+        padding-right: 20px;
+        color: #3CCACE;
+      }
+    }
+    .kensaku-taitoru{
+      font-size: 22px;
+      font-weight: bold;
+      padding: 20px 0 5px 0;
+    }
+    .syouhin-lists{
+      // background-color: yellow;
+      max-height: 7324px;
+      min-height: 500px;
+      max-width: 100%;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      word-wrap: break-word;  //強制折り返し
+      .syouhin-block{
+        height: 246px;
+        width: 204px;
+        padding: 8px;
+        margin-bottom: 16px;
+        .gazou{
+          background-color: tomato;
+          height: 188px;
+          width: 188px;
+          position: relative;
+          .nedan{
+            position: absolute;
+            background-color: #00000033;
+            height: 25px;
+            min-width: 30px;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            bottom: 5px;
+            padding: 3px 8px 3px 8px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+          }
+        }
+        .syouhinmei{
+          background-color: white;
+          height: 58px;
+          width: 100%;
+          padding: 8px 8px;
+          font-size: 15px;
+          overflow: hidden;
+          position: relative;
+          .masuku{
+            position: absolute;
+            // background-color: yellowgreen;
+            bottom: 0;
+            right: 10px;
+            height: 25px;
+            width: 50px;
+            background: -moz-linear-gradient(left, #FFF0 40%, #FFF);
+            background: -webkit-linear-gradient(left, #FFF0 40%, #FFF);
+            background: linear-gradient(to right, #FFF0, #FFF);
+          }
+        }
+      }
+    }
+    .pezi-area{
+      background-color: violet;
+      height: 44px;
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    .kategori-setumei{
+      background-color: yellowgreen;
+      height: 200px;
+      width: 100%;
+      .kategori-taitoru{
+        background-color: red;
+        height: 52px;
+        width: 100%;
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        line-height: 52px;
+      }
+      .kategori-tekisuto{
+        background-color: white;
+        height: 148px;
+        padding: 30px;
+        font-size: 14px;
+      }
+    }
+  }
+}

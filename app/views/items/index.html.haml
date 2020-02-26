@@ -1,0 +1,35 @@
+=render 'shared/header'
+
+.owaku
+  .tyuoyose
+    %ul.rinkumozi-lists
+      
+      %li
+        = link_to "#", class: "rinkumozi" do
+          家庭用ゲーム本体
+      
+    .kensaku-taitoru
+      = "”" + "検索内容" + "”の一覧"
+    .syouhin-lists
+
+
+      - for num in 1..20 do
+        .syouhin-block
+          .gazou
+            = image_tag "icon-04.png", class: "gazou"
+            .nedan
+              = "¥ " + "1,0000"
+          .syouhinmei
+            商品名ああああああああああああああああああああああ
+            .masuku
+
+
+    .pezi-area
+      ページネイション
+    .kategori-setumei
+      .kategori-taitoru
+        テレビゲーム（本・音楽・ゲーム）
+      .kategori-tekisuto
+        テレビゲーム(本・音楽・ゲーム)の買い取り、売るならメルカリへ。テレビゲームは本・音楽・ゲームの下にあるカテゴリで商品は100万点以上あります。よく見られているカテゴリーは携帯用ゲームソフトや携帯用ゲームソフトです。特に人気の商品は「ポケットモンスター ソウルシルバー」や「すみっコぐらし むらをつくるんです」や「信長の野望・創造 with パワーアップキット」があります。テレビゲームの処分や整理、売却を検討中の方にお勧めです。
+
+=render 'shared/footer'
