@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  root "items#edit"
-  resources :items, only: [:new, :show, :edit]
+  devise_for :users
+  root "items#home"
+  resources :items, only: [:new, :show] do
+    collection do
+      get 'purchase', to: 'items#purchase'
+    end
+  end
 end
