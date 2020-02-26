@@ -16,6 +16,6 @@
           = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
             %input{ type: "hidden", name: "card_id", value: "" }
             %button.submit-btn 削除する
-            =link_to root_path do
-              %button.back-btn もどる
+          =link_to root_path do
+            %button.back-btn もどる
   = render "shared/form-foot"
