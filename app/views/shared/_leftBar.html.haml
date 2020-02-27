@@ -25,7 +25,6 @@
     プロフィール
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  // 以下、サーバ実装後の情報の登録の有無確認用
   - if @address.blank?
     = link_to new_address_path, class: 'side-menu__content' do
       発送元・お届け先住所の登録
