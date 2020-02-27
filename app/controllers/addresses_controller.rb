@@ -4,7 +4,6 @@ class AddressesController < ApplicationController
   end
 
   def create
-    # binding.pry
     @address = Address.new(address_params)
     if @address.save                    # ←保存処理がうまくいったかどうかの判定
       redirect_to user_path(current_user.id)#, notice: '住所を編集しました'
@@ -14,12 +13,11 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @address = Address.find_by(user_id: params[:id])
   end
 
   def update
-    @address = Address.find_by(params[:id])
+    @address = Address.find(params[:id])
     if @address.update(address_params)
       redirect_to user_path(current_user.id), notice: '住所登録を更新しました'
     else
