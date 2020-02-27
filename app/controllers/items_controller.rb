@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     @items = []
     roots = Category.where(ancestry: nil)
     3.times do |count|
-      @roots_cat.push(roots[count]) # レディース     TODO:ランダム
+      @roots_cat.push(roots[count]) # TODO:ランダム
       @items.push(Item.where(bought_user_id: nil).where(category_id: @roots_cat[count].indirect_ids).order(created_at: "DESC").take(10))
     end
     
