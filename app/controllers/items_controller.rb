@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @address = Address.find_by(user_id: current_user)
     @user = User.find_by(id: @item.user_id)
     @category = Category.find_by(id: @item.category_id)
   end
