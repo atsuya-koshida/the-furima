@@ -21,7 +21,7 @@
             ブランド
       %ul.lists-right
         %li.lists-right__item.lists-right__item--login
-          = link_to "#", class: "text", method: :delete do
+          = link_to destroy_user_session_path, class: "text", method: :delete do
             ログアウト
           = link_to "#", class: "text" do
             マイページ
