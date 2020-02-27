@@ -41,12 +41,18 @@
           .confirmation-box__heading
             配送先
           .confirmation-box__detail
-            〒150-0041
+            〒
+            = @address.postal_code
             %br/
-            東京都 渋谷区 神南1丁目12-16 アジアビル８F
+            = @address.prefecture
+            = @address.city
+            = @address.house_num
+            = @address.detail
+            -# 東京都 渋谷区 神南1丁目12-16 アジアビル８F
             %br/
-            山田 太郎
-        =link_to '#', class: 'shipping-address__changing-btn' do
+            = @address.firstname
+            = @address.lastname
+        =link_to edit_address_path(current_user), class: 'shipping-address__changing-btn' do
           変更する
       .purchase-btn
         = form_tag(action: :pay, method: :post) do

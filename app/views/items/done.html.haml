@@ -29,11 +29,17 @@
           .confirmation-box__heading
             配送先
           .confirmation-box__detail
-            〒150-0041
+            〒
+            = @address.postal_code
             %br/
-            東京都 渋谷区 神南1丁目12-16 アジアビル８F
+            = @address.prefecture
+            = @address.city
+            = @address.house_num
+            = @address.detail
+            -# 東京都 渋谷区 神南1丁目12-16 アジアビル８F
             %br/
-            山田 太郎
+            = @address.firstname
+            = @address.lastname
       .body__purchase-btn
         = link_to root_path do
           %button.submit-btn{ style: "margin-top: 0; width: 100%;"} 買い物を続ける

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "items#home"
+  resources :users, only: [:show]
   resources :items, only: [:new, :create, :show, :edit] do
     collection do
       get 'category_more'
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
       post 'pay', to: 'items#pay'
     end
   end
+
+  resources :addresses, only: [:new, :create, :edit, :update]
 
   resources :card, only: [:new] do
     collection do
