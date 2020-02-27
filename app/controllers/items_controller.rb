@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
   before_action :authenticate_user!, only: [:purchase, :pay, :done]
 
@@ -6,8 +7,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # binding.pry
-    @item = Item.find(params[:id])
     @user = User.find_by(id: @item.user_id)
     @category = Category.find_by(id: @item.category_id)
   end
@@ -42,7 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
@@ -53,7 +51,6 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     :amount => @item.price,
@@ -65,7 +62,6 @@ class ItemsController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
     @user = User.find_by(id: @item.user_id)
     @category = Category.find_by(id: @item.category_id)
   end
@@ -78,5 +74,9 @@ class ItemsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
