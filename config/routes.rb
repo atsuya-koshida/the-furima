@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root "items#home"
-  resources :users, only: [:show]
+  get 'users/exhibitionList', to: 'users#exhibitionList'
+  get 'users/soldList', to: 'users#soldList'
+  get 'users/purchaseList', to: 'users#purchaseList'
+  get 'users/contact', to: 'users#contact'
+  get 'users/info', to: 'users#info'
+  resources :users, only: [:edit, :update, :show]
   resources :items, only: [:new, :create, :show, :edit] do
     collection do
       get 'category_more'
