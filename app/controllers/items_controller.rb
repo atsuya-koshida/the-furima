@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    @address = Address.find_by(user_id: current_user)
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
