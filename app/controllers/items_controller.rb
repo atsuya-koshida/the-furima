@@ -1,25 +1,54 @@
 class ItemsController < ApplicationController
 
   def home
+
+    @roots_cat = []
+    @items = []
+    roots = Category.where(ancestry: nil)
+    3.times do |count|
+      @roots_cat.push(roots[count]) # レディース     TODO:ランダム
+      @items.push(Item.where(bought_user_id: nil).where(category_id: @roots_cat[count].indirect_ids).order(created_at: "DESC").take(10))
+    end
+    
   end
 
   def purchase
   end
 
-  # カテゴリが４の商品を登録が新しい順で10レコード抽出
-  def category_index
-    @category = Category.where(id: 4)
-    @items = Item.where(bought_user_id: nil).where(category_id: 4).order(created_at: "DESC").take(10)
+  def new
+    @item = Item.new
+    @item.images.new
+    @parents = Category.where(ancestry: nil)
   end
 
-  # 商品検索用のアクション
-  def search_index
-    if params[:search]
-      @search_text = params[:search]
-      @items = Item.where(bought_user_id: nil).where("title LIKE ?", "%#{params[:search]}%")
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
     else
-      Item.all
+      @parents = Category.where(ancestry: nil)
+      flash.now[:alert] = '出品に失敗しました'
+      render :new
     end
   end
+
+  def category_more
+    if params[:l_cat]
+      @m_cat = Category.find(params[:l_cat]).children
+    else
+      @s_cat = Category.find(params[:m_cat]).children
+    end
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:title, :description, :condition_id, :postage_id, :prefecture_id, :schedule_id, :price, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
   
 end

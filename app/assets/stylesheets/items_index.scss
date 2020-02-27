@@ -29,7 +29,7 @@
         padding: 8px;
         margin-bottom: 16px;
         &__product-img{
-          background-color: tomato;
+          background-color: white;
           height: 188px;
           width: 188px;
           position: relative;
@@ -40,7 +40,7 @@
           }
           &--on-price{
             position: absolute;
-            background-color: #00000033;
+            background-color: #00000055;
             height: 25px;
             min-width: 30px;
             color: white;
@@ -72,13 +72,6 @@
           }
         }
       }
-    }
-    .pagination-area{
-      background-color: violet;
-      height: 44px;
-      width: 100%;
-      margin-top: 40px;
-      margin-bottom: 40px;
     }
   }
 }

@@ -1,0 +1,18 @@
+.search-results-tmp
+  .search-results-tmp__disp-area
+
+    = @roots_cat.length.times do |count|
+      .search-results-tmp__disp-area--search-title
+        = @roots_cat[count].name + "新着アイテム"
+
+      .search-products-list
+        - @items[count].each do |item|
+          .search-product-block
+            .search-product-block__product-img
+              = image_tag "icon-04.png", class: "img-conf"
+              .search-product-block__product-img--on-price
+                = "¥ " + item.price.to_s(:delimited)
+            .search-product-block__product-name
+              = simple_format(item.description)
+              .search-product-block__product-name--white-mask
+
