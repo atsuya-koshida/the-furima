@@ -4,6 +4,15 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:purchase, :pay, :done]
 
   def home
+
+    @roots_cat = []
+    @items = []
+    roots = Category.where(ancestry: nil)
+    3.times do |count|
+      @roots_cat.push(roots[count]) # TODO:ランダム
+      @items.push(Item.where(bought_user_id: nil).where(category_id: @roots_cat[count].indirect_ids).order(created_at: "DESC").take(10))
+    end
+    
   end
 
   def show

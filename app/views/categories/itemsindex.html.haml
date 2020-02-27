@@ -4,12 +4,14 @@
     .itemsindex-title
       トップスの商品一覧
     .itemsindex-content
+      - for num in 1..10 do
       =link_to "#" do
         .items-box
           = image_tag "pict-reason-03.jpg",class: "items-box-photo"
           .items-box-body
             %h3.items-box-name
               タイタニック号
+
       =link_to "#" do
         .items-box
           = image_tag "pict-reason-03.jpg",class: "items-box-photo"
