@@ -5,7 +5,12 @@
     .my-status
       .my-status__purchased-items
         .purchased-title
-          購入した商品
+          出品した商品
+        .purchased-tabs
+          = link_to '#', id: 'transacted-tab', class: 'mypage-tab' do
+            出品中
+          = link_to '#', id: 'during-trading-tab', class: 'mypage-tab' do
+            売却済み
         .purchased-lists
           -#このしたはeachで回す shunのmemo
           %ul
@@ -49,6 +54,4 @@
                   Ray-ban RB4147 レイバン サングラス 美品
                 .icon-arrow-right
                   = icon('fas', 'chevron-right')
-          -# .purchased-lists--message
-          -#   購入した商品がありません←←←←←if文で表示させる shunのmemo
 =render 'shared/footer'
