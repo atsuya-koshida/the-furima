@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :purchase, :pay, :done]
+  before_action :set_card, only: [:purchase, :pay, :done]
+  before_action :authenticate_user!, only: [:purchase, :pay, :done]
 
   def home
 
@@ -12,9 +15,11 @@ class ItemsController < ApplicationController
     
   end
 
-  def purchase
+  def show
+    @user = User.find(@item.user_id)
+    @category = Category.find(@item.category_id)
   end
-
+  
   def new
     @item = Item.new
     @item.images.new
@@ -44,11 +49,45 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    @address = Address.find_by(user_id: current_user)
+    if @card.blank?
+      redirect_to controller: "card", action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+    :amount => @item.price,
+    :customer => @card.customer_id,
+    :currency => 'jpy'
+    )
+    Item.update(bought_user_id: current_user.id)
+    redirect_to action: 'done' 
+  end
+
+  def done
+    @address = Address.find_by(user_id: current_user)
+    @user = User.find_by(id: @item.user_id)
+    @category = Category.find_by(id: @item.category_id)
+  end
+
   private
 
   def item_params
     params.require(:item).permit(:title, :description, :condition_id, :postage_id, :prefecture_id, :schedule_id, :price, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-  
+  def set_card
+    @card = Card.find_by(user_id: current_user)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

@@ -1,0 +1,49 @@
+.form-page
+  =render partial: 'shared/form-head'
+  .form-body
+    .container
+      .container__title
+        発送元・お届け先住所変更
+      .container__body
+        .body__form
+          = form_with model: @address, url: address_path, local: true, method: :PATCH do |f|
+            -# = devise_error_messages!
+            .title
+              お名前（全角）
+            .name-box
+              =f.text_field :lastname, class: "name-box__text-field", value: "#{@address.lastname}"
+              =f.text_field :firstname, class: "name-box__text-field", value: "#{@address.firstname}"
+            .title
+              お名前カナ（全角）
+            .name-box
+              =f.text_field :lastname_kana, class: "name-box__text-field", value: "#{@address.lastname_kana}"
+              =f.text_field :firstname_kana, class: "name-box__text-field", value: "#{@address.firstname_kana}"
+            .title
+              郵便番号
+            .birthday
+              =f.text_field :postal_code, class: "text-field", value: "#{@address.postal_code}"
+            .title
+              県
+            .birthday
+              =f.text_field :prefecture, class: "text-field", value: "#{@address.prefecture}"
+            .title
+              市区町村
+            .birthday
+              =f.text_field :city, class: "text-field", value: "#{@address.city}"
+            .title
+              番地
+            .birthday
+              =f.text_field :house_num, class: "text-field", value: "#{@address.house_num}"
+            .title
+              建物名
+            .birthday
+              =f.text_field :detail, class: "text-field", value: "#{@address.detail}"
+            .title
+              電話番号
+            .birthday
+              =f.text_field :tel_num, class: "text-field", value: "#{@address.tel_num}"
+
+
+
+            =f.submit '更新する', class: "submit-btn"
+  =render partial: 'shared/form-foot'
