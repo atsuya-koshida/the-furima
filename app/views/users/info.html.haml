@@ -1,0 +1,46 @@
+.form-page
+  =render 'shared/form-head'
+  .my-page
+    =render 'shared/leftBar'
+    .my-info
+      .my-info__title
+        ユーザー情報
+      .my-info__contents
+        .my-info__contents--infomation
+          お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .content-title
+          お名前
+        .content-text
+          name
+        .content-title
+          お名前（カナ）
+        .content-text
+          ネーム
+        .content-title
+          生年月日
+        .content-text
+          20200101
+
+        .content-title
+          郵便番号
+        .content-text
+          000-0000
+        .content-title
+          都道府県
+        .content-text
+          東京
+        .content-title
+          市区町村
+        .content-text
+          渋谷区
+        .content-title
+          番地
+        .content-text
+          1-1-1
+        .content-title
+          建物名
+        .content-text
+          ○○ビル
+  =render partial: 'shared/form-foot'

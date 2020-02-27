@@ -1,0 +1,21 @@
+=render 'shared/header'
+.form-page
+  .my-page
+    =render 'shared/leftBar'
+    .my-status
+      .container
+        .container__title
+          お問い合わせ
+        .container__body
+          .body__form
+            = form_with url: "#", local: true do |f|
+              .title
+                .text
+                  お問い合わせ内容
+                %span.require
+                  必須
+              =f.text_area :description, class: "item-text-area"
+              .annotation
+                メールアドレスが間違っていたり、ドメイン指定受信していると返答が届きませんのでご注意ください。
+                =f.submit '送信する', class: "submit-btn contact-btn"
+=render 'shared/footer'
