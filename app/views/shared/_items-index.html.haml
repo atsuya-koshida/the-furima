@@ -1,7 +1,7 @@
 .search-results-tmp
   .search-results-tmp__disp-area
 
-    = @roots_cat.length.times do |count|
+    - @roots_cat.length.times do |count|
       .search-results-tmp__disp-area--search-title
         = @roots_cat[count].name
 
