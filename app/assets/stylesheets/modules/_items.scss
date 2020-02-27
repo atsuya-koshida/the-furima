@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: #f8f8f8;
+}
 header{
   padding: 0 60px;
   width: 100vw;
@@ -302,16 +305,17 @@ header{
         }
       }
       .product-lists{
-        width: 780px;
+        width: 1020px;
         margin: 0 auto;
         display: flex;
         justify-content: space-around;
         padding-bottom: 26px;
         margin-top: 26px;
+        flex-wrap: wrap;
         .product-list{
           width: 220px;
           display: inline-block;
-          // float: left;
+          margin: 10px;
           .link{
             background-color: #fff;
             display: inline-block;
@@ -436,7 +440,7 @@ footer{
     font-size: 14px;
   }
 }
-.purchase-btn{
+.exhibition-btn{
   width: 120px;
   background: #3CCACE;
   text-align: center;

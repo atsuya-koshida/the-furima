@@ -1,0 +1,69 @@
+=render 'shared/header'
+.main
+  .itemsindex-container
+    .itemsindex-title
+      トップスの商品一覧
+    .itemsindex-content
+      - for num in 1..10 do
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              タイタニック号
+
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              ほうれん草
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              佐々木
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              カマンベール
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              トーマス
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              タイタニック号 豪華客船 映画にもなりました！！！！！
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              ほうれん草
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              佐々木
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              カマンベール
+      =link_to "#" do
+        .items-box
+          = image_tag "pict-reason-03.jpg",class: "items-box-photo"
+          .items-box-body
+            %h3.items-box-name
+              トーマス
+  =render 'shared/footer'

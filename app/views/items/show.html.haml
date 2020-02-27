@@ -78,13 +78,14 @@
             %td
               1~2日で発送
 
-      .body__purchase-btn
-        - if user_signed_in? && current_user.id == @item.user_id
-          =link_to item_path, method: :delete, data: {confirm: "本当に削除しますか?"} do
-            %button.back-btn 削除する
-        - else
-          = link_to '#' do
-            %button.submit-btn{ style: "width: 100%;"} 購入する
+        .body__purchase-btn
+          - if user_signed_in? && current_user.id == @item.user_id
+            =link_to item_path, method: :delete, data: {confirm: "本当に削除しますか?"} do
+              %button.back-btn 削除する
+          - else
+            .body__purchase-btn
+              = link_to purchase_item_path do
+                %button.submit-btn{ style: "width: 100%;"} 購入する
 
 
 

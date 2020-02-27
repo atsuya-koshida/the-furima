@@ -1,0 +1,46 @@
+.form-page
+  =render partial: 'shared/form-head'
+  .container
+    .container__title
+      購入が完了しました
+    .container__body
+      .item-unit
+        .item-unit__left
+          = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'image-1'
+        .item-unit__right
+          .right__title
+            = @item.title
+          .right__price-box
+            .price
+              ¥
+              = @item.price.to_s(:delimited)
+            %span
+              (税込)
+            .price-box__postage
+              送料込み
+      .payment
+        %span
+          支払い金額
+        .payment__amount
+          ¥
+          = @item.price.to_s(:delimited)
+      .shipping-address
+        .confirmation-box
+          .confirmation-box__heading
+            配送先
+          .confirmation-box__detail
+            〒
+            = @address.postal_code
+            %br/
+            = @address.prefecture
+            = @address.city
+            = @address.house_num
+            = @address.detail
+            -# 東京都 渋谷区 神南1丁目12-16 アジアビル８F
+            %br/
+            = @address.firstname
+            = @address.lastname
+      .body__purchase-btn
+        = link_to root_path do
+          %button.submit-btn{ style: "margin-top: 0; width: 100%;"} 買い物を続ける
+  =render partial: 'shared/form-foot'
