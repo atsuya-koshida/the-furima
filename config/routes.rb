@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :addresses, only: [:new, :create, :edit, :update]
+
   resources :card, only: [:new] do
     collection do
       get 'show', to: 'card#show'
