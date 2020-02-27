@@ -1,46 +1,96 @@
 .item-show {
   width: 700px;
   margin: 0 auto;
+
   .item-box {
     background-color: #fff;
     padding: 0 40px 40px;
     margin-top: 24px;
     margin-bottom: 10px;
+    // position: relative;
     &__title {
       text-align: center;
       font-weight: bold;
       font-size: 24px;
     }
     &__images {
+      height: 320px;
+      width: 100%;
       margin: 16px 0 0;
-      .image-box {
+      // padding-left: 20px;
+      position: relative;
+      &--scroll-image{
+        height: 100%;
+        width: 100%;
         display: flex;
-        position: relative;
-        &__select {
-          display: flex;
-          flex-direction: column;
-          width: 560px;
-          align-items: center;
-          margin: 0 auto;
-          img {
+        overflow-x: scroll;
+        padding-left: 10px;
+        .image-box{
+          flex-basis: 0 0 280px;
+          padding: 10px;
+          height: 95%;
+          width: 300px;
+          min-width: 280px;
+          img{
             object-fit: cover;
-            height: 346px;
-          }
-          .image-lists {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            &__image {
-              width: 25%;
-              margin: 0 10px 0 0;
-              img {
-                object-fit: cover;
-                height: 87px;
-              }
-            }
+            height: 300px;
           }
         }
       }
+      &--left-mask{
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+        width: 20px;
+        background: -moz-linear-gradient(right, #FFF0 40%, #FFF);
+        background: -webkit-linear-gradient(right, #FFF0 40%, #FFF);
+        background: linear-gradient(to left, #FFF0, #FFF);
+      }
+      &--right-mask{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 20px;
+        background: -moz-linear-gradient(left, #FFF0 40%, #FFF);
+        background: -webkit-linear-gradient(left, #FFF0 40%, #FFF);
+        background: linear-gradient(to right, #FFF0, #FFF);
+      }
+      
+
+
+
+
+
+
+      // .image-box {
+      //   display: flex;
+      //   position: relative;
+      //   &__select {
+      //     display: flex;
+      //     flex-direction: column;
+      //     // width: 560px;
+      //     align-items: center;
+      //     margin: 0 auto;
+      //     img {
+      //       object-fit: cover;
+      //       height: 346px;
+      //     }
+      //     .image-lists {
+      //       display: flex;
+      //       justify-content: center;
+      //       margin-top: 10px;
+      //       &__image {
+      //         width: 25%;
+      //         margin: 0 10px 0 0;
+      //         img {
+      //           object-fit: cover;
+      //           height: 87px;
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
     }
     &__price-box {
       margin: 24px 0 24px;
