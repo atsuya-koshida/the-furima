@@ -13,11 +13,11 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    @address = Address.find_by(user_id: params[:id])
+    @address = Address.find_by(user_id: current_user.id)
   end
 
   def update
-    @address = Address.find(params[:id])
+    @address = Address.find_by(user_id: current_user.id)
     if @address.update(address_params)
       redirect_to user_path(current_user.id), notice: '住所登録を更新しました'
     else

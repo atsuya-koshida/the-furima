@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root "items#home"
-  resources :users, only: [:edit, :update, :show]
-  collection do
-    get 'exhibitionList', to: 'users#exhibitionList'
-    get 'soldList', to: 'users#soldList'
-    get 'contact', to: 'users#contact'
-    get 'info', to: 'users#info'
+  resources :users, only: [:edit, :update, :show] do
+    collection do
+      get 'exhibitionList', to: 'users#exhibitionList'
+      get 'soldList', to: 'users#soldList'
+      get 'contact', to: 'users#contact'
+      get 'info', to: 'users#info'
+    end
   end
   resources :items, only: [:new, :create, :show, :edit] do
     collection do
