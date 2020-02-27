@@ -7,8 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: @item.user_id)
-    @category = Category.find_by(id: @item.category_id)
+    @user = User.find(@item.user_id)
+    @category = Category.find(@item.category_id)
   end
   
   def new
