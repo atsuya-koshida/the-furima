@@ -6,7 +6,7 @@
     .container__body
       .item-unit
         .item-unit__left
-          = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'image-1'
+          = image_tag @item.images[0].image.url, alt: 'item1-1', class: 'image-1'
         .item-unit__right
           .right__title
             item1
