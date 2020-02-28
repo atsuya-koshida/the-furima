@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
   def show
     @user = User.find(@item.user_id)
     @category = Category.find(@item.category_id)
+    @images =Image.find_by(item_id: params[:id])
   end
   
   def new
