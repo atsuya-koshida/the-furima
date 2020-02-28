@@ -37,6 +37,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    flash[:success] = '商品を削除しました'
+    redirect_to root_path
+  end
+
   def category_more
     if params[:l_cat]
       @m_cat = Category.find(params[:l_cat]).children
