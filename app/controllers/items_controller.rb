@@ -55,14 +55,14 @@ class ItemsController < ApplicationController
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def pay
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp.api_key = Rails.application.credentials[:payjp][:private_key]
     Payjp::Charge.create(
     :amount => @item.price,
     :customer => @card.customer_id,
