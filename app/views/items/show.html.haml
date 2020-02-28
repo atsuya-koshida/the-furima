@@ -13,27 +13,7 @@
           = image_tag "mikan00.jpeg", alt: "item1-1"
       .item-box__images--left-mask
       .item-box__images--right-mask
-
-
-        
-
-
-
-
-
-
-
-
-      -# %ul.image-box
-      -#   %li.image-box__select
-      -#     = image_tag "mikan00.jpeg", alt: "item1-big"
-      -#     %ul.image-lists
-      -#       %li.image-lists__image
-      -#         = image_tag "mikan00.jpeg", alt: "item1-1"
-      -#       %li.image-lists__image
-      -#         = image_tag "mikan1.jpeg", alt: "item1-2"
-      -#       %li.image-lists__image
-      -#         = image_tag "fruit_mikan_kawa.png", alt: "item1-3"
+      
     .item-box__price-box
       %span.price-box__price
         = "¥ " + @item.price.to_s(:delimited)
