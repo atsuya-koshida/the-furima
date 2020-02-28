@@ -10,7 +10,7 @@
           = link_to item_path(item.id), class: "link" do
             .search-product-block
               .search-product-block__product-img
-                = image_tag "icon-04.png", class: "img-conf"
+                = image_tag item.images[0].image.url, class: "img-conf"
                 .search-product-block__product-img--on-price
                   = "¥ " + item.price.to_s(:delimited)
               .search-product-block__product-name
