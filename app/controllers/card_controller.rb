@@ -2,6 +2,7 @@ class CardController < ApplicationController
   require "payjp"
   before_action :set_card, only: [:new, :show, :delete]
   def new
+    @card = Card.new
   end
 
   def pay

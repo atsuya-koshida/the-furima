@@ -16,12 +16,18 @@
         %li.lists-left__item.lists-left__item--first
           = link_to "#", class: "text" do
             カテゴリー
-        %li.lists-left__item
-          = link_to "#", class: "text" do
-            ブランド
       %ul.lists-right
-        %li.lists-right__item.lists-right__item--login
-          = link_to destroy_user_session_path, class: "text", method: :delete do
-            ログアウト
-          = link_to "#", class: "text" do
-            マイページ
+        -if user_signed_in?
+          %li.lists-right__item.lists-right__item--login
+            = link_to destroy_user_session_path, class: "text", method: :delete do
+              ログアウト
+          %li.lists-right__item.lists-right__item--new
+            = link_to user_path(current_user), class: "text" do
+              マイページ
+        -else
+          %li.lists-right__item.lists-right__item--login
+            = link_to new_user_session_path, class: "text" do
+              ログイン
+          %li.lists-right__item.lists-right__item--new
+            = link_to new_user_registration_path, class: "text" do
+              新規会員登録
