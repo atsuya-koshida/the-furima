@@ -44,7 +44,7 @@
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
       
-  - if @card.blanK?
+  - if @card.blank?
     = link_to new_card_path, class: 'side-menu__content' do
       支払い方法の登録
       .side-menu__content--arrow
