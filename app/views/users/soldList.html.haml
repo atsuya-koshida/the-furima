@@ -7,9 +7,9 @@
         .purchased-title
           出品した商品
         .purchased-tabs
-          = link_to exhibitionList_users_path, id: 'transacted-tab', class: 'mypage-tab' do
+          = link_to exhibitionList_user_path, id: 'transacted-tab', class: 'mypage-tab' do
             出品中
-          = link_to soldList_users_path, id: 'during-trading-tab', class: 'mypage-tab' do
+          = link_to soldList_user_path, id: 'during-trading-tab', class: 'mypage-tab' do
             売却済み
         .purchased-lists
           - if @sold_items.present?
