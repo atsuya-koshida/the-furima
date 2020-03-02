@@ -19,12 +19,15 @@ class UsersController < ApplicationController
   end
 
   def purchaseList
+    @bought_items = Item.where(bought_user_id: current_user)
   end
 
   def exhibitionList
+    @selling_items = Item.where(user_id: current_user).where(bought_user_id: nil)
   end
 
   def soldList
+    @sold_items = Item.where(user_id: current_user).where.not(bought_user_id: nil)
   end
 
   def contact

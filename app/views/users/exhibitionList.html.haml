@@ -7,44 +7,24 @@
         .purchased-title
           出品した商品
         .purchased-tabs
-          = link_to '#', id: 'during-trading-tab', class: 'mypage-tab' do
+          = link_to exhibitionList_users_path, id: 'during-trading-tab', class: 'mypage-tab' do
             出品中
-          = link_to '#', id: 'transacted-tab', class: 'mypage-tab' do
+          = link_to soldList_users_path, id: 'transacted-tab', class: 'mypage-tab' do
             売却済み
+            
         .purchased-lists
-          %ul
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-          -# .purchased-lists--message
-          -#   出品中の商品がありません←←←←←if文で表示させるshunのmemo
+          - if @selling_items.present?
+            - @selling_items.each do |item| 
+              %ul
+                %li
+                  =link_to item_path(item) do
+                    .image-box
+                      = image_tag item.images[0].image.url
+                    .text
+                      = item.title
+                    .icon-arrow-right
+                      = icon('fas', 'chevron-right')
+          - else
+            .purchased-lists--message
+              出品中の商品がありません
 =render 'shared/footer'
