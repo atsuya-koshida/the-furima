@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root "items#home"
   resources :users, only: [:edit, :update, :show] do
-    collection do
+    member do
       get 'exhibitionList', to: 'users#exhibitionList'
       get 'soldList', to: 'users#soldList'
       get 'contact', to: 'users#contact'
       get 'info', to: 'users#info'
     end
   end
+  
   resources :items, only: [:new, :create, :show, :edit] do
     collection do
       get 'category_more'
@@ -22,9 +23,8 @@ Rails.application.routes.draw do
 
   resources :addresses, only: [:new, :create, :edit, :update]
 
-  resources :card, only: [:new] do
+  resources :card, only: [:new, :show] do
     collection do
-      get 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
     end
