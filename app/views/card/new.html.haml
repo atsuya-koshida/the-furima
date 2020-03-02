@@ -6,7 +6,7 @@
         クレジットカード情報入力
       .container__body
         .body__form
-          .card-number__form{ style: "margin-top: 24px;"}
+          .card-number__form
             %label{ style: "font-weight: bold;"} カード番号
             %span.require 必須
             = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
