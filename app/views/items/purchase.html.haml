@@ -9,7 +9,7 @@
           = image_tag @item.images[0].image.url, alt: 'item1-1', class: 'image-1'
         .item-unit__right
           .right__title
-            item1
+            = @item.title
           .right__price-box
             .price
               ¥
