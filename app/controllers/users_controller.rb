@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_card, only: [:show, :indo, :purchaseList, :exhibitionList, :soldList, :contact]
+  before_action :set_address, only: [:show, :indo, :purchaseList, :exhibitionList, :soldList, :contact]
   
   def show
-    @address = Address.find_by(user_id: current_user.id)
   end
   
   def edit
@@ -34,5 +35,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :image, :email, :password, :password_confirmation, :lastname, :firstname, :lastname_kana, :firstname_kana, :birthday)
+  end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user)
+  end
+
+  def set_address
+    @address = Address.find_by(user_id: current_user.id)
   end
 end

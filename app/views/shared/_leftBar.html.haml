@@ -9,17 +9,17 @@
 
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to exhibitionList_users_path, class: 'side-menu__content' do
+  = link_to exhibitionList_user_path, class: 'side-menu__content' do
     出品した商品-出品中
 
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to soldList_users_path, class: 'side-menu__content' do
+  = link_to soldList_user_path, class: 'side-menu__content' do
     出品した商品-売却済み
 
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to contact_users_path, class: 'side-menu__content' do
+  = link_to contact_user_path, class: 'side-menu__content' do
     お問い合わせ
 
     .side-menu__content--arrow
@@ -46,13 +46,12 @@
     = link_to new_card_path, class: 'side-menu__content' do
       支払い方法の登録
       .side-menu__content--arrow
-        = icon('fas', 'chevron-right')
-        
+        = icon('fas', 'chevron-right')  
   - else
-    = link_to card_index_path, class: 'side-menu__content' do
+    = link_to card_path, class: 'side-menu__content' do
       支払い方法
-    .side-menu__content--arrow
-      = icon('fas', 'chevron-right')
+      .side-menu__content--arrow
+        = icon('fas', 'chevron-right')
   = link_to '#', class: 'side-menu__content' do
     メール/パスワード
     .side-menu__content--arrow
