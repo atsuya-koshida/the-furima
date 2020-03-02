@@ -14,7 +14,7 @@
             
         .purchased-lists
           - if @selling_items.present?
-            - @selling_items.each do |item| 
+            - @selling_items.each do |item|
               %ul
                 %li
                   =link_to item_path(item) do
