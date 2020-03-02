@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
     :customer => @card.customer_id,
     :currency => 'jpy'
     )
-    Item.update(bought_user_id: current_user.id)
+    @item.update(bought_user_id: current_user.id)
     redirect_to action: 'done' 
   end
 
