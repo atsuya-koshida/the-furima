@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
-  validates :password, length: { minimum: 7 }
+  # validates :password, length: { minimum: 7 }...会員情報更新の為 hara
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   VALID_BIRTHDAY_REGEX = /\A[0-9]+\z/
