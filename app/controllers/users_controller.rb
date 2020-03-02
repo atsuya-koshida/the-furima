@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_action :set_address, only: [:show, :indo, :purchaseList, :exhibitionList, :soldList, :contact]
   
   def show
+    @bought_items = Item.where(bought_user_id: current_user)
   end
+
   
   def edit
   end
@@ -20,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def purchaseList
-    @bought_items = Item.where(bought_user_id: current_user)
   end
 
   def exhibitionList
