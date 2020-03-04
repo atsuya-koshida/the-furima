@@ -9,8 +9,7 @@ Rails.application.routes.draw do
       get 'info', to: 'users#info'
     end
   end
-  
-  resources :items, only: [:new, :create, :show, :edit] do
+  resources :items, except: :index do
     collection do
       get 'category_more'
     end

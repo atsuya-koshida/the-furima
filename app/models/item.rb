@@ -7,7 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :schedule
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, allow_destroy: true
+  validates :images, presence: true
   validates :title, length: { in: (1..40)}
   validates :description, length: { in: (1..1000)}
   validates :price, inclusion: { in: (300..9999999)}

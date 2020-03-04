@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay, :done]
+  before_action :set_item, only: [:show, :edit, :update, :destroy,:purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
+  before_action :set_cats, only: [:edit, :update]
   before_action :authenticate_user!, only: [:purchase, :pay, :done]
 
   def home
@@ -30,12 +31,35 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
+      flash[:success] = '商品を出品しました'
       redirect_to root_path
     else
+      @item.images.new
       @parents = Category.where(ancestry: nil)
       flash.now[:alert] = '出品に失敗しました'
       render :new
     end
+  end
+
+  def edit
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def update
+    if @item.update(item_params)
+      flash[:success] = '商品情報を更新しました'
+      redirect_to root_path
+    else
+      @parents = Category.where(ancestry: nil)
+      flash.now[:alert] = '商品情報編集に失敗しました'
+      render :edit
+    end
+  end
+
+  def destroy
+    @item.destroy
+    flash[:success] = '商品を削除しました'
+    redirect_to root_path
   end
 
   def category_more
@@ -81,7 +105,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :condition_id, :postage_id, :prefecture_id, :schedule_id, :price, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :description, :condition_id, :postage_id, :prefecture_id, :schedule_id, :price, :category_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
 
   def set_card
@@ -90,5 +114,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_cats
+    @grandChild = Category.find(@item.category_id)
+    @child = @grandChild.parent
+    @parent = @child.parent
+    @grandChildCats = @child.children
+    @childCats = @parent.children
   end
 end
