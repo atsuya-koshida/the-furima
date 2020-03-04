@@ -1,28 +1,34 @@
 .side-menu
-  = link_to '#', class: 'side-menu__content' do
+  = link_to user_path(current_user), class: 'side-menu__content' do
     購入した商品
+
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to '#', class: 'side-menu__content' do
+  = link_to new_item_path, class: 'side-menu__content' do
     出品する
+
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to '#', class: 'side-menu__content' do
+  = link_to exhibitionList_user_path, class: 'side-menu__content' do
     出品した商品-出品中
+
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to '#', class: 'side-menu__content' do
+  = link_to soldList_user_path, class: 'side-menu__content' do
     出品した商品-売却済み
+
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to '#', class: 'side-menu__content' do
+  = link_to contact_user_path, class: 'side-menu__content' do
     お問い合わせ
+
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
   .side-menu__sub-title
     設定
-  = link_to '#', class: 'side-menu__content' do
+  = link_to user_path(current_user), class: 'side-menu__content' do
     プロフィール
+
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
   - if @address.blank?
@@ -35,16 +41,22 @@
       発送元・お届け先住所の変更
       .side-menu__content--arrow
         = icon('fas', 'chevron-right')
-
-  = link_to '#', class: 'side-menu__content' do
-    支払い方法
-    .side-menu__content--arrow
-      = icon('fas', 'chevron-right')
+      
+  - if @card.blank?
+    = link_to new_card_path, class: 'side-menu__content' do
+      支払い方法の登録
+      .side-menu__content--arrow
+        = icon('fas', 'chevron-right')  
+  - else
+    = link_to card_index_path, class: 'side-menu__content' do
+      支払い方法
+      .side-menu__content--arrow
+        = icon('fas', 'chevron-right')
   = link_to '#', class: 'side-menu__content' do
     メール/パスワード
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')
-  = link_to '#', class: 'side-menu__content' do
-    本人情報     
+  = link_to edit_user_path, class: 'side-menu__content' do
+    会員情報の変更
     .side-menu__content--arrow
       = icon('fas', 'chevron-right')

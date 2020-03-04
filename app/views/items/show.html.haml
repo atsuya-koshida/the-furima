@@ -2,30 +2,26 @@
 .item-show
   .item-box
     %h2.item-box__title
-      item1
+      = @item.title
     .item-box__images
-      %ul.image-box
-        %li.image-box__select
-          = image_tag "mikan00.jpeg", alt: "item1-big"
-          %ul.image-lists
-            %li.image-lists__image
-              = image_tag "mikan00.jpeg", alt: "item1-1"
-            %li.image-lists__image
-              = image_tag "mikan1.jpeg", alt: "item1-2"
-            %li.image-lists__image
-              = image_tag "fruit_mikan_kawa.png", alt: "item1-3"
+      .item-box__images--scroll-image
+        - @item.images.each do |image|
+          .image-box
+            = image_tag image.image.url
+      .item-box__images--left-mask
+      .item-box__images--right-mask
+      
     .item-box__price-box
       %span.price-box__price
-        ¥
-        3000
+        = "¥ " + @item.price.to_s(:delimited)
       .price-box__detail
         %span
           (税込)
         %span
-          送料込み
+          = @item.postage.name
 
     .item-box__description
-      This is the item1.
+      = @item.description
     .item-box__table
       %table
         %tbody
@@ -33,21 +29,21 @@
             %th
               出品者
             %td
-              user１
+              = @user.nickname
           %tr
             %th
               カテゴリー
             %td
               =link_to '#' do
-                レディース
+                = @category.root.name
               %br/
               =link_to '#' do
                 = icon('fas', 'angle-right')
-                トップス
+                = @category.parent.name
               %br/
               =link_to '#' do
                 = icon('fas', 'angle-right')
-                シャツ
+                = @category.name
           %tr
             %th
               ブランド
@@ -60,23 +56,23 @@
             %th
               商品の状態
             %td
-              新品、未使用
+              = @item.condition.name
           %tr
             %th
               配送料の負担
             %td
-              送料込み
+              = @item.postage.name
           %tr
             %th
               発送元の地域
             %td
               =link_to '#' do
-                東京都
+                = @item.prefecture.name
           %tr
             %th
               発送日の目安
             %td
-              1~2日で発送
+              = @item.schedule.name
 
         .body__purchase-btn
           - if user_signed_in? && current_user.id == @item.user_id
@@ -100,6 +96,6 @@
         = icon('fas', 'angle-right')
   .related-items
     =link_to '#' do
-      レディースをもっと見る
+      = @category.root.name + "をもっと見る"
     .related-items__item-list
 =render 'shared/footer'

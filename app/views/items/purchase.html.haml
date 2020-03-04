@@ -6,10 +6,10 @@
     .container__body
       .item-unit
         .item-unit__left
-          = image_tag 'mikan00.jpeg', alt: 'item1-1', class: 'image-1'
+          = image_tag @item.images[0].image.url, alt: 'item1-1', class: 'image-1'
         .item-unit__right
           .right__title
-            item1
+            = @item.title
           .right__price-box
             .price
               ¥
@@ -37,23 +37,30 @@
               - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
               = exp_month + " / " + exp_year
       .shipping-address
-        .confirmation-box
-          .confirmation-box__heading
-            配送先
-          .confirmation-box__detail
-            〒
-            = @address.postal_code
-            %br/
-            = @address.prefecture
-            = @address.city
-            = @address.house_num
-            = @address.detail
-            -# 東京都 渋谷区 神南1丁目12-16 アジアビル８F
-            %br/
-            = @address.firstname
-            = @address.lastname
-        =link_to edit_address_path(current_user), class: 'shipping-address__changing-btn' do
-          変更する
+        .confirmation-box{ style: "width: 100%;"}
+          - if @address.blank?
+            .address-btn-master{style: "display: flex; justify-content: space-between;"}
+              .confirmation-box__heading
+                配送先
+              =link_to new_address_path(current_user), class: 'shipping-address__changing-btn' do
+                登録する
+          - else
+            .address-btn-master{style: "display: flex; justify-content: space-between;"}
+              .confirmation-box__heading
+                配送先
+              =link_to edit_address_path(current_user), class: 'shipping-address__changing-btn' do
+                変更する
+            .confirmation-box__detail
+              〒
+              = @address.postal_code
+              %br/
+              = @address.prefecture
+              = @address.city
+              = @address.house_num
+              = @address.detail
+              %br/
+              = @address.firstname
+              = @address.lastname
       .purchase-btn
         = form_tag(action: :pay, method: :post) do
           %button.submit-btn{ style: "margin-top: 0; width: 100%;"} 購入する

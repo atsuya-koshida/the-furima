@@ -7,48 +7,18 @@
         .purchased-title
           購入した商品
         .purchased-lists
-          -#このしたはeachで回す shunのmemo
-          %ul
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-            %li
-              =link_to "#" do
-                .image-box
-                  = image_tag "pict-reason-03.jpg"
-                .text
-                  Ray-ban RB4147 レイバン サングラス 美品
-                .icon-arrow-right
-                  = icon('fas', 'chevron-right')
-          -# .purchased-lists--message
-          -#   購入した商品がありません←←←←←if文で表示させる shunのmemo
+          - if @bought_items.present?
+            - @bought_items.each do |item|
+              %ul
+                =link_to item_path(item) do
+                  %li
+                    .image-box
+                      = image_tag item.images[0].image.url
+                    .text
+                      = item.title
+                    .icon-arrow-right
+                      = icon('fas', 'chevron-right')
+          - else
+            .purchased-lists--message
+              購入した商品がありません
 =render 'shared/footer'
