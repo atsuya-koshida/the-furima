@@ -3,12 +3,6 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   describe "#create" do
 
-    # before do
-    #   user = create(:user)
-    #   category = create(:category)
-    # end
-    # , category_id: category.id, user_id: user.id
-
     it "title、description、condition_id、postage_id、prefecture_id、schedule_id、price、category、user、imageがあれば出品できる" do
       expect(build(:item)).to be_valid
     end

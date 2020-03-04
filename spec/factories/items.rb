@@ -10,7 +10,7 @@ FactoryBot.define do
     price                 {1000}
     user_id               {1}
     category_id           {1}
-    
+    image
   end
 
 end
