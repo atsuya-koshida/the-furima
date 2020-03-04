@@ -10,7 +10,9 @@ FactoryBot.define do
     price                 {1000}
     user_id               {1}
     category_id           {1}
-    image
+    # association :image, factory: :image
+    # before(:create) do |item|
+    #   item.image.store!(File.open("#{Rails.root}/spec/fixtures/test_image.jpg"))
+    # end
   end
-
 end
