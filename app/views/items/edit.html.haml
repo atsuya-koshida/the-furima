@@ -6,7 +6,7 @@
         商品の情報を編集
       .container__body
         .body__form
-          = form_with url: "#", local: true do |f|
+          = form_with model: @item, url: item_path, local: true, method: :PATCH do |f|
             .form__images
               .title
                 .text
@@ -15,6 +15,14 @@
                   必須
               %p 最大10枚までアップロードできます
               .images__container
+                %ul.prev-content
+                  - @item.images.each do |image|
+                    %li.preview-box
+                      %figure.upper-box
+                        = image_tag image.image.url
+                      .lower-box
+                        .delete-box
+                          削除
                 .prev-content
                 .label-content
                   %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
@@ -22,15 +30,6 @@
                 .hidden-content
                   = f.fields_for :images do |i|
                     = i.file_field :image, class: "hidden-field"
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][5][image]", id: "item_images_attributes_5_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][6][image]", id: "item_images_attributes_6_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][7][image]", id: "item_images_attributes_7_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][8][image]", id: "item_images_attributes_8_image" }
-                    %input{class:"hidden-field", type: "file", name: "item[images_attributes][9][image]", id: "item_images_attributes_9_image" }
             .title
               .text
                 商品名
@@ -49,31 +48,31 @@
                   カテゴリー
                 %span.require
                   必須
-              =f.select :category_id, [['メンズ', 1], ['レディース', 2]], {prompt: '---'}, { id: "category_id", class: "item-select" }
+              =f.collection_select :category_id, @parents, :id, :name, {prompt: "---", selected: @item.category_id}, class: "item-select", id: "l_category"
             .title
               .text
                 商品の状態
               %span.require
                 必須
-            =f.select :condition, [['新品、未使用', 1], ['未使用に近い', 2], ['目立った傷や汚れなし', 3], ['やや傷や汚れあり', 4], ['傷や汚れあり', 5], ['全体的に状態が悪い', 6]], {prompt: '---'}, { id: "condition", class: "item-select" }
+            =f.collection_select :condition_id, Condition.all, :id, :name, {prompt: '---'}, class: "item-select", id: "condition"
             .title
               .text
                 配送料の負担
               %span.require
                 必須
-            =f.select :postage, [['送料込み', '送料込み'], ['着払い', '着払い']], {prompt: '---'}, { id: "postages", class: "item-select" }
+            =f.collection_select :postage_id, Postage.all, :id, :name, {prompt: '---'}, class: "item-select", id: "postages"
             .title
               .text
                 発送元の地域
               %span.require
                 必須
-            =f.select :prefecture, [['東京都', 1], ['埼玉県', 2]], {prompt: '---'}, { id: "prefecture", class: "item-select" }
+            =f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}, class: "item-select", id: "prefecture"
             .title
               .text
                 発送までの日数
               %span.require
                 必須
-            =f.select :schedule, [['1~2日で発送', 1], ['2~3日で発送', 2], ['4~7日で発送', 2]], {prompt: '---'}, { id: "schedule", class: "item-select" }
+            =f.collection_select :schedule_id, Schedule.all, :id, :name, {prompt: '---'},  class: "item-select", id: "schedule"
             .title
               .text
                 価格
