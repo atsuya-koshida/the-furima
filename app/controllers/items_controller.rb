@@ -51,7 +51,6 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-      #  binding.pry
     if @item.save
       flash[:success] = '商品情報を更新しました'
       redirect_to root_path
