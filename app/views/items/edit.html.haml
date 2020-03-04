@@ -25,11 +25,17 @@
                           削除
                 .prev-content
                 .label-content
-                  %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                  %label{for: "item_images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--0"}
                     %pre.label-box__text クリックしてファイルをアップロード
                 .hidden-content
                   = f.fields_for :images do |i|
+                    // 10個のfile_fieldを準備する
+                    // previewが出ている数のfile_fieldとdelete用のチェックボックスを設置
                     = i.file_field :image, class: "hidden-field"
+                    = i.check_box :_destroy, class: "hidden-checkbox"
+                    // 上記で設置した分と合わせて10個にするために、足りない分を表示
+                  - @item.images.length.upto(9) do |i|
+                    %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class: "hidden-field", type: "file"}
             .title
               .text
                 商品名
