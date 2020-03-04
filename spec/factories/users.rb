@@ -1,15 +1,15 @@
 FactoryBot.define do
 
   factory :user do
-    nickname                  {"abe"}
-    email                 {"kkk@gmail.com"}
+    nickname              {"test"}
+    email                 {"test@gmail.com"}
     password              {"00000000"}
     password_confirmation {"00000000"}
-    firstname             {"安倍"}
-    lastname              {"晋三"}
-    firstname_kana        {"アベ"}
-    lastname_kana         {"シンゾウ"}
-    birthday              {19971124}
+    firstname             {"手洲斗"}
+    lastname              {"太郎"}
+    firstname_kana        {"テスト"}
+    lastname_kana         {"タロウ"}
+    birthday              {20000101}
   end
 
 end
