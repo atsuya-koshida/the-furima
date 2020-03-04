@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :purchase, :pay, :done]
+  before_action :set_item, only: [:show, :edit, :update, :destroy,:purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
   before_action :authenticate_user!, only: [:purchase, :pay, :done]
 
@@ -40,9 +40,25 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def update
+    @item.update(item_params)
+      #  binding.pry
+    if @item.save
+      flash[:success] = '商品情報を更新しました'
+      redirect_to root_path
+    else
+      @parents = Category.where(ancestry: nil)
+      flash.now[:alert] = '商品情報編集に失敗しました'
+      render :edit
+    end
+  end
+
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     flash[:success] = '商品を削除しました'
     redirect_to root_path
   end
@@ -90,7 +106,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :condition_id, :postage_id, :prefecture_id, :schedule_id, :price, :category_id, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :description, :condition_id, :postage_id, :prefecture_id, :schedule_id, :price, :category_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
   end
 
   def set_card
