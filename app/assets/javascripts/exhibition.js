@@ -84,7 +84,6 @@ $(function(){
 
     // 画像の削除
     $(document).on('click', '.delete-box', function() {
-      console.log('87')
       var count = $('.preview-box').length;
       //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
@@ -94,7 +93,6 @@ $(function(){
       // 新規投稿時と編集時の場合分け
       // 新規投稿時(削除用チェックボックスの有無で判定)
       if ($(`#item_images_attributes_${id}__destroy`).length == 0) {
-        console.log('97')
         //フォームの中身を削除 
         $(`#item_images_attributes_${id}_image`).val("");
         //削除時のラベル操作
@@ -108,7 +106,6 @@ $(function(){
           $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
         }
       } else {
-        console.log('111')
         // 投稿編集時
         $(`#item_images_attributes_${id}__destroy`).prop('checked', true);
         // 10個目が消されたらラベルを表示
