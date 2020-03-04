@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy,:purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
+  before_action :set_cats, only: [:edit, :update]
   before_action :authenticate_user!, only: [:purchase, :pay, :done]
 
   def home
@@ -50,8 +51,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-    if @item.save
+    if @item.update(item_params)
       flash[:success] = '商品情報を更新しました'
       redirect_to root_path
     else
