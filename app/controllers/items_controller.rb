@@ -43,11 +43,6 @@ class ItemsController < ApplicationController
 
   def edit
     @parents = Category.where(ancestry: nil)
-    @grandChild = Category.find(@item.category_id)
-    @child = @grandChild.parent
-    @parent = @child.parent
-    @grandChildCats = @child.children
-    @childCats = @parent.children
   end
 
   def update
@@ -119,5 +114,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_cats
+    @grandChild = Category.find(@item.category_id)
+    @child = @grandChild.parent
+    @parent = @child.parent
+    @grandChildCats = @child.children
+    @childCats = @parent.children
   end
 end
