@@ -75,7 +75,10 @@
               = @item.schedule.name
 
         .body__purchase-btn
-          - if user_signed_in? && current_user.id == @item.user_id
+          - if user_signed_in? && @item.bought_user_id
+            =link_to user_path do
+              %button.back-btn 戻る
+          - elsif user_signed_in? && current_user.id == @item.user_id
             =link_to edit_item_path do
               %button.submit-btn{ style: "width: 100%; font-size: 14px;"} 編集する
             =link_to item_path, method: :delete, data: {confirm: "本当に削除しますか?"} do
