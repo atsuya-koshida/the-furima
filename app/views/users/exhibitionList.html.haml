@@ -16,8 +16,8 @@
           - if @selling_items.present?
             - @selling_items.each do |item|
               %ul
-                %li
-                  =link_to item_path(item) do
+                =link_to item_path(item) do
+                  %li
                     .image-box
                       = image_tag item.images[0].image.url
                     .text
